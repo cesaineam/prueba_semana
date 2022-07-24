@@ -1,7 +1,7 @@
 .App {
   text-align: center;
 }
-
+@import '~antd/dist/antd.css';
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #25375d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
