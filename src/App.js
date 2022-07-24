@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 import { List, Button, Card, Row, Col, Space, Spin, message, Select, Tooltip, Typography, Option } from "antd";
-import { LoadingOutlined, LikeOutlined, TagOutlined, FilterOutlined } from "@ant-design/icons";
+import { LoadingOutlined, LikeOutlined, TagOutlined, FilterOutlined,UserOutlined } from "@ant-design/icons";
 
 
 
@@ -35,8 +35,7 @@ function App() {
       });
       setDataFilter(auxPosts);
     } else {
-      console.log("entro a vacio")
-      console.log(dataPosts)
+      
       setDataFilter(dataPosts)
     }
 
@@ -123,19 +122,14 @@ function App() {
           pageSize: 5,
         }}
         dataSource={data}
-        footer={
-          <div>
-            <b>ant design</b> footer part
-          </div>
-        }
-        onClick={() => {
-          console.log("click en item ")
-        }}
+        
+       
         renderItem={(item) => (
           <List.Item
             key={item.title}
             actions={[
 
+              <IconText icon={UserOutlined } text={item.owner.firstName +" " +item.owner.lastName} />,
               <IconText icon={LikeOutlined} text={item.likes} />,
               <IconText icon={TagOutlined} text={item.tags} />,
 
@@ -181,7 +175,7 @@ function App() {
 
     //}
 
-  }, []);
+  }, [loading]);
 
 
   return (
@@ -196,8 +190,7 @@ function App() {
       )}
       {loading && (
         <>
-          {
-            console.log("Searched", searched)}
+          
           <header className="jumbotron">
             <div className="container">
               <div className="row row-header">
